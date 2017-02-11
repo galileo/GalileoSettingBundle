@@ -24,16 +24,16 @@ $service('galileo.settings.setting')->section('userId:{userId}')->get('email_add
 
 This bundle will add you some additional possibilities to handle your settings, and also is esier to use without exception handling in our application.
 
-| FUnctionality | GalileoSettingBundle | CraueSettingBundle |
-| --- | --- | --- |
-| Get values without exception | X | 0 |
-| Settings unique for all sections | 0 | X |
-| Settings unique within section | X | 0 |
-| GUI panel to manage settings | 0 | X |
-| Get values with defaule values | X | 0 |
-| Events exposed for customize actions | X | 0 |
-| Change values for setting | X | X |
-| Established create function | X | 0 |
+| FUnctionality                        | GalileoSettingBundle | CraueSettingBundle |
+| ---                                  | ---                  | ---                |
+| Get values without exception         | :white_check_mark:   | :x:                |
+| Settings unique for all sections     | :x:                  | :white_check_mark: |
+| Settings unique within section       | :white_check_mark:   | :x:                |
+| GUI panel to manage settings         | :x:                  | :white_check_mark: |
+| Get values with defaule values       | :white_check_mark:   | :x:                |
+| Events exposed for customize actions | :white_check_mark:   | :x:                |
+| Change values for setting            | :white_check_mark:   | :white_check_mark: |
+| Established create function          | :white_check_mark:   | :x:                |
 
 Craue documentation:
 
