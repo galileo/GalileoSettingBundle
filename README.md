@@ -30,9 +30,9 @@ This bundle will add you some additional possibilities to handle your settings, 
 | Settings unique for all sections     | :x:                  | :white_check_mark: |
 | Settings unique within section       | :white_check_mark:   | :x:                |
 | GUI panel to manage settings         | :x:                  | :white_check_mark: |
-| Get values with defaule values       | :white_check_mark:   | :x:                |
+| Set settings defaule values          | :white_check_mark:   | :x:                |
 | Events exposed for customize actions | :white_check_mark:   | :x:                |
-| Change values for setting            | :white_check_mark:   | :white_check_mark: |
+| Change setting value                 | :white_check_mark:   | :white_check_mark: |
 | Established create function          | :white_check_mark:   | :x:                |
 
 Craue documentation:
