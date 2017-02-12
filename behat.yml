@@ -1,0 +1,7 @@
+default:
+    suites:
+        broadcaster:
+            paths:    [ %paths.base%/Features ]
+            contexts:
+                - Galileo\SettingBundle\Features\Context\FeatureContext:
+

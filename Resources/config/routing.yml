@@ -1,0 +1,3 @@
+galileo_setting_homepage:
+    path:     /
+    defaults: { _controller: GalileoSettingBundle:Default:index }
