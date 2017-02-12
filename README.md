@@ -41,6 +41,15 @@ $service('galileo.settings.setting')->section('userId:{userId}')->get('email_add
 
 ## Dispatched events
 
+### Events you can listen to
+
+| Event name | Event class |
+| --- | --- |
+| `galileo.setting.not_existing_setting_queried` | Galileo\SettingBundle\Domain\Model\Events\NotExistingSettingQueriedEvent |
+| `galileo.setting.setting_queried`              | Galileo\SettingBundle\Domain\Model\Events\SettingQueriedEvent            |
+| `galileo.setting.setting_created`              | Galileo\SettingBundle\Domain\Model\Events\SettingCreatedEvent            |
+| `galileo.setting.setting_changed`              | Galileo\SettingBundle\Domain\Model\Events\SettingChangedEvent            |
+| `galileo.setting.setting_deleted`              | Galileo\SettingBundle\Domain\Model\Events\SettingDeletedEvent            |
 
 ### Getter events 
 
