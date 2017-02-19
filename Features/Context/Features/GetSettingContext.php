@@ -2,35 +2,57 @@
 
 namespace Galileo\SettingBundle\Features\Context\Features;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
+use Galileo\SettingBundle\Lib\Application\SettingService;
+use Galileo\SettingBundle\Lib\Infrastructure\Internal\InMemorySettingRepository;
+use Galileo\SettingBundle\Lib\Model\Setting;
 
 trait GetSettingContext
 {
+    /**
+     * @var SettingService
+     */
+    private $settingService;
+
+    /**
+     * @var Setting
+     */
+    private $responseValue;
 
     /**
      * @Given /^there are persisted settings in storage system$/
      */
     public function thereArePersistedSettingsInStorageSystem(TableNode $table)
     {
-        throw new PendingException();
+        $this->settingService = new SettingService(new InMemorySettingRepository($table->getRows()));
     }
 
     /**
-     * @When /^you try to get (.*)$/
+     * @When /^you try to get ([a-z_]*)$/
      */
     public function youTryToGetNotExisting($settingName)
     {
-        var_dump($settingName);
-
-        throw new PendingException();
+        $this->responseValue = $this->settingService->get($settingName);
     }
+
+    /**
+     * @When /^you try to get ([a-z_]*) with default value '(.*)'$/
+     */
+    public function youTryToGetNotExistingWithDefaultValue($settingName, $defaultValue)
+    {
+        $this->responseValue = $this->settingService->get($settingName, $defaultValue);
+    }
+
 
     /**
      * @Then /^you should get setting with (.*) value$/
      */
-    public function youShouldGetSettingWithValue($null)
+    public function youShouldGetSettingWithValue($value)
     {
-        throw new PendingException();
+        if ($value == 'null') {
+            $value = null;
+        }
+
+        \PHPUnit_Framework_Assert::assertEquals($value, $this->responseValue);
     }
 }

@@ -15,4 +15,4 @@ Feature: We should provide data persisted in storage mechanism
   @getSetting
   Scenario: Get not existing setting value
     When you try to get awesome_setting with default value 'awesome@example.com'
-    Then you should get setting with null value
+    Then you should get setting with awesome@example.com value
