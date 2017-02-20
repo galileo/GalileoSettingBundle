@@ -3,7 +3,7 @@
 namespace Galileo\SettingBundle\Lib\Model;
 
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
-use Symfony\Component\Stopwatch\Section;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
 interface SettingRepository
 {

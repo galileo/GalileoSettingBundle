@@ -4,8 +4,8 @@ Feature: We should provide data persisted in storage mechanism
 
   Background:
     Given there are persisted settings in storage system
-      | email | hello@galileoprime.com          | null             |
-      | email | hello+buissnes@galileoprime.com | bussiens_section |
+      | email         | hello@galileoprime.com         | null    |
+      | section_email | hello+section@galileoprime.com | section |
 
   @getSetting
   Scenario: Get not existing setting value
@@ -16,3 +16,8 @@ Feature: We should provide data persisted in storage mechanism
   Scenario: Get not existing setting value
     When you try to get awesome_setting with default value 'awesome@example.com'
     Then you should get setting with awesome@example.com value
+
+  @getSetting
+  Scenario: Get settings for existing value
+    When you try to get email
+    Then you should get setting with hello@galileoprime.com value

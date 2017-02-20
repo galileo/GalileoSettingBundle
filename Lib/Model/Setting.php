@@ -2,6 +2,10 @@
 
 namespace Galileo\SettingBundle\Lib\Model;
 
+use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
+
 class Setting
 {
     private $id;
@@ -9,21 +13,21 @@ class Setting
     private $value;
     private $section;
 
-    public static function issueNew($name, $value)
+    public static function issueNew(Key $name, Value $value)
     {
-        $setting = new Setting();
-        $setting->name = $name;
-        $setting->value = $value;
-
-        return $setting;
+        return new Setting($name, $value, new Section(null));
     }
 
-    public static function issueForSection($name, $value, $section)
+    public static function issueForSection(Key $name, Value $value, Section $section)
     {
-        $setting = self::issueNew($name, $value);
-        $setting->section = $section;
+        return new Setting($name, $value, $section);
+    }
 
-        return $section;
+    private function __construct(Key $key, Value $value, Section $section)
+    {
+        $this->setKey($key);
+        $this->setValue($value);
+        $this->setSection($section);
     }
 
     public function name()
@@ -39,5 +43,29 @@ class Setting
     public function section()
     {
         return $this->section;
+    }
+
+    /**
+     * @param Key $key
+     */
+    private function setKey(Key $key)
+    {
+        $this->name = $key->key();
+    }
+
+    /**
+     * @param Section $section
+     */
+    private function setSection(Section $section = null)
+    {
+        $this->section = $section->name();
+    }
+
+    /**
+     * @param Value $value
+     */
+    private function setValue(Value $value)
+    {
+        $this->value = $value->value();
     }
 }

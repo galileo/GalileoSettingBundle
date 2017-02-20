@@ -10,4 +10,9 @@ class Key
     {
         $this->key = $key;
     }
+
+    public function key()
+    {
+        return $this->key;
+    }
 }
