@@ -7,6 +7,5 @@ before_script:
   - composer install --prefer-dist
 
 script:
-  - ls -al
-  - ls -al
   - bin/behat
+  - bin/phpspec run
