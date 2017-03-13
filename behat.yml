@@ -3,4 +3,5 @@ default:
         broadcaster:
             paths:    [ %paths.base%/Features ]
             contexts:
-                - Features\Context\FeatureContext:
+                - Galileo\SettingBundle\Features\Context\FeatureContext
+                - Galileo\SettingBundle\Features\Context\CreateSettingsContext

@@ -1,11 +1,12 @@
+@setting @create
 Feature: Create new settings at any application lifetime
   As an developer
   You should be able to create any settings that will fulfil your needs with some value
 
   @createSetting
   Scenario: Create new settings
-    Given there is nothing registed in storage system
-    When you try to create new setting email with value hello@galileoprime.com
+    Given there is nothing registered in storage system
+    When you try to create new setting named email with value hello@galileoprime.com
     Then you should get success result
 
   @changeSetting

@@ -2,10 +2,12 @@
 
 namespace Galileo\SettingBundle\Lib\Application;
 
+use Galileo\SettingBundle\Lib\Model\Setting;
 use Galileo\SettingBundle\Lib\Model\SettingRepository;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 
-class SettingService
+class SettingApplication
 {
     private $settingRepository;
 
@@ -23,5 +25,20 @@ class SettingService
         }
 
         return $setting->value();
+    }
+
+    public function set($keyName, $valueString)
+    {
+        $key = Key::fromString($keyName);
+        $value = Value::fromString($valueString);
+        $setting = $this->settingRepository->findFor($key);
+
+        if (null == $setting) {
+            $setting = Setting::issueNew($key, $value);
+        }
+
+        $setting->changeValue($value);
+
+        $this->settingRepository->save($setting);
     }
 }

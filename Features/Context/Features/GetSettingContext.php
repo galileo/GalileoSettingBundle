@@ -3,14 +3,14 @@
 namespace Galileo\SettingBundle\Features\Context\Features;
 
 use Behat\Gherkin\Node\TableNode;
-use Galileo\SettingBundle\Lib\Application\SettingService;
+use Galileo\SettingBundle\Lib\Application\SettingApplication;
 use Galileo\SettingBundle\Lib\Infrastructure\Internal\InMemorySettingRepository;
 use Galileo\SettingBundle\Lib\Model\Setting;
 
 trait GetSettingContext
 {
     /**
-     * @var SettingService
+     * @var SettingApplication
      */
     private $settingService;
 
@@ -24,7 +24,7 @@ trait GetSettingContext
      */
     public function thereArePersistedSettingsInStorageSystem(TableNode $table)
     {
-        $this->settingService = new SettingService(new InMemorySettingRepository($table->getRows()));
+        $this->settingService = new SettingApplication(new InMemorySettingRepository($table->getRows()));
     }
 
     /**
@@ -53,6 +53,6 @@ trait GetSettingContext
             $value = null;
         }
 
-        \PHPUnit_Framework_Assert::assertEquals($value, $this->responseValue);
+        assert($value ===$this->responseValue, "[$value] compared to [$this->responseValue]");
     }
 }

@@ -2,20 +2,23 @@
 
 namespace Galileo\SettingBundle\Lib\Model;
 
+use Galileo\SettingBundle\Lib\Model\Event\EventAggregate;
+use Galileo\SettingBundle\Lib\Model\Event\EventAggregateTrait;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 
-class Setting
+class Setting implements EventAggregate
 {
-    private $id;
+    use EventAggregateTrait;
+
     private $name;
     private $value;
     private $section;
 
     public static function issueNew(Key $name, Value $value)
     {
-        return new Setting($name, $value, new Section(null));
+        return new Setting($name, $value, Section::blank());
     }
 
     public static function issueForSection(Key $name, Value $value, Section $section)
@@ -43,6 +46,20 @@ class Setting
     public function section()
     {
         return $this->section;
+    }
+
+    /**
+     * @param Value $value
+     */
+    public function changeValue(Value $value)
+    {
+        $internalValue = new Value($this->value);
+
+        if ($value->equalsTo($internalValue)) {
+            return;
+        }
+
+        $this->setValue($value);
     }
 
     /**

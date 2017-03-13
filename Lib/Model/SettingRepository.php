@@ -20,4 +20,11 @@ interface SettingRepository
      * @return Setting | null
      */
     public function findWithinSection(Key $settingKey, Section $settingSection);
+
+    /**
+     * @param Setting $setting
+     *
+     * @return Setting
+     */
+    public function save(Setting $setting);
 }

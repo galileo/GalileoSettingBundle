@@ -4,7 +4,7 @@ Feature: We should provide data persisted in storage mechanism
 
   Background:
     Given there are persisted settings in storage system
-      | email         | hello@galileoprime.com         | null    |
+      | email         | hello@galileoprime.com         | |
       | section_email | hello+section@galileoprime.com | section |
 
   @getSetting

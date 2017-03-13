@@ -11,8 +11,18 @@ class Value
         $this->value = $value;
     }
 
+    public static function fromString($string)
+    {
+        return new Value($string);
+    }
+
     function value()
     {
         return $this->value;
+    }
+
+    public function equalsTo(Value $value)
+    {
+        return $this->value === $value->value;
     }
 }

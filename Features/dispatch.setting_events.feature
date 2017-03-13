@@ -1,3 +1,4 @@
+@setting @event
 Feature: For extending possibilites for other developers and to fulfil external needs we should dispatch some setting
   events
   As an develoepr

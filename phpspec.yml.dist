@@ -1,0 +1,4 @@
+suites:
+    setting_suite:
+        namespace: Galileo\SettingBundle
+        psr4_prefix: Galileo\SettingBundle
