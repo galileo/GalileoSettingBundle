@@ -40,7 +40,7 @@ class SectionQuery
         $setting = $this->find($aKey);
 
         if (null == $setting) {
-            $setting = Setting::issueForSection($aKey, $aValue, $this->section);
+            $setting = Setting::issue($aKey, $aValue, $this->section);
         }
 
         $setting->changeValue($aValue);

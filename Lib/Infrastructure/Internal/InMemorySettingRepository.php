@@ -40,7 +40,7 @@ class InMemorySettingRepository implements SettingRepository
             return null;
         }
 
-        return Setting::issueForSection(
+        return Setting::issue(
             $settingKey,
             $this->values[$key][$sectionName],
             new Section($sectionName)

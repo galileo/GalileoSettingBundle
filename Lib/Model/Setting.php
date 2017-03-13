@@ -16,17 +16,12 @@ class Setting implements EventAggregate
     private $value;
     private $section;
 
-    public static function issueNew(Key $name, Value $value)
-    {
-        return new Setting($name, $value, Section::blank());
-    }
-
-    public static function issueForSection(Key $name, Value $value, Section $section)
+    public static function issue(Key $name, Value $value, Section $section)
     {
         return new Setting($name, $value, $section);
     }
 
-    private function __construct(Key $key, Value $value, Section $section)
+    public function __construct(Key $key, Value $value, Section $section)
     {
         $this->setKey($key);
         $this->setValue($value);

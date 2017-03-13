@@ -6,6 +6,7 @@ use Galileo\SettingBundle\Lib\Application\SettingApplication;
 use Galileo\SettingBundle\Lib\Infrastructure\Internal\InMemorySettingRepository;
 use Galileo\SettingBundle\Lib\Model\SettingRepository;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 use PhpSpec\ObjectBehavior;
 
@@ -38,7 +39,7 @@ class SettingApplicationSpec extends ObjectBehavior
 
     public function it_returns_value_from_persistence_mechanism(SettingRepository $settingRepository)
     {
-        $settingRepository->findFor(new Key('set_key'))->willReturn(Value::fromString('stored_value'));
+        $settingRepository->findWithinSection(new Key('set_key'), Section::blank())->willReturn(Value::fromString('stored_value'));
 
         $this->get('set_key')->shouldReturn('stored_value');
     }
