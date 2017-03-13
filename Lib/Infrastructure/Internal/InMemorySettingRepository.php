@@ -17,22 +17,10 @@ class InMemorySettingRepository implements SettingRepository
     {
         foreach ($settingPlainRows as $key) {
             $name = $key[0];
-            $section = $key[2];
             $value = $key[1];
-            $this->set($value, $name, $section);
+            $section = $key[2];
+            $this->set($name, $value, $section);
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findFor(Key $settingKey)
-    {
-        if (!isset($this->values[$settingKey->key()][Section::EMPTY_SECTION])) {
-            return null;
-        }
-
-        return Setting::issueNew($settingKey, $this->values[$settingKey->key()][Section::EMPTY_SECTION]);
     }
 
     /**
@@ -40,7 +28,23 @@ class InMemorySettingRepository implements SettingRepository
      */
     public function findWithinSection(Key $settingKey, Section $section)
     {
-        // TODO: Implement findWithinSection() method.
+        $sectionName = $section->name();
+
+        if (!$this->values) {
+            return null;
+        }
+
+        $key = $settingKey->key();
+
+        if (!isset($this->values[$key][$sectionName])) {
+            return null;
+        }
+
+        return Setting::issueForSection(
+            $settingKey,
+            $this->values[$key][$sectionName],
+            new Section($sectionName)
+        );
     }
 
     /**
@@ -48,15 +52,15 @@ class InMemorySettingRepository implements SettingRepository
      */
     public function save(Setting $setting)
     {
-        $this->set($setting->value(), $setting->name(), $setting->section());
+        $this->set($setting->name(), $setting->value(), $setting->section());
     }
 
     /**
-     * @param $value
      * @param $name
+     * @param $value
      * @param $section
      */
-    private function set($value, $name, $section)
+    private function set($name, $value, $section)
     {
         $section = $section ? $section : Section::EMPTY_SECTION;
 

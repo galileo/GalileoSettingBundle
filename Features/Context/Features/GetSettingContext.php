@@ -36,6 +36,14 @@ trait GetSettingContext
     }
 
     /**
+     * @When you try to get :setting within :section
+     */
+    public function youTryToGetSettingWithinSection($setting, $section)
+    {
+        $this->responseValue = $this->settingService->section($section)->get($setting, 'null');
+    }
+
+    /**
      * @When /^you try to get ([a-z_]*) with default value '(.*)'$/
      */
     public function youTryToGetNotExistingWithDefaultValue($settingName, $defaultValue)

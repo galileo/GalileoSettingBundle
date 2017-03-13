@@ -2,10 +2,9 @@
 
 namespace Galileo\SettingBundle\Lib\Application;
 
-use Galileo\SettingBundle\Lib\Model\Setting;
+use Galileo\SettingBundle\Lib\Model\SectionQuery;
 use Galileo\SettingBundle\Lib\Model\SettingRepository;
-use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
-use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
 class SettingApplication
 {
@@ -18,27 +17,23 @@ class SettingApplication
 
     public function get($settingKey, $defaultValue = null)
     {
-        $setting = $this->settingRepository->findFor(new Key($settingKey));
+        $sectionQuery = new SectionQuery($this->settingRepository, Section::blank());
 
-        if (null === $setting) {
-            return $defaultValue;
-        }
+        return $sectionQuery->get($settingKey, $defaultValue);
+    }
 
-        return $setting->value();
+    /**
+     * @param $name
+     * @return SectionQuery
+     */
+    public function section($name)
+    {
+        return new SectionQuery($this->settingRepository, new Section($name));
     }
 
     public function set($keyName, $valueString)
     {
-        $key = Key::fromString($keyName);
-        $value = Value::fromString($valueString);
-        $setting = $this->settingRepository->findFor($key);
-
-        if (null == $setting) {
-            $setting = Setting::issueNew($key, $value);
-        }
-
-        $setting->changeValue($value);
-
-        $this->settingRepository->save($setting);
+        $sectionQuery = new SectionQuery($this->settingRepository, Section::blank());
+        $sectionQuery->set($keyName, $valueString);
     }
 }

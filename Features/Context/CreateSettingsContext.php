@@ -3,12 +3,15 @@
 namespace Galileo\SettingBundle\Features\Context;
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
 use Galileo\SettingBundle\Lib\Application\SettingApplication;
 use Galileo\SettingBundle\Lib\Infrastructure\Internal\InMemorySettingRepository;
+use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
 class CreateSettingsContext implements Context
 {
+    /**
+     * @var SettingApplication
+     */
     private $settings;
 
     /**
@@ -16,7 +19,18 @@ class CreateSettingsContext implements Context
      */
     public function thereIsNothingRegisteredInStorageSystem()
     {
-        $this->settings = new SettingApplication(new InMemorySettingRepository([]));
+        $settingRepository = new InMemorySettingRepository([]);
+        $this->settings = new SettingApplication($settingRepository);
+    }
+
+    /**
+     * @Given there is already registered :key setting with :value value
+     */
+    public function alreadyRegisteredKeyWithValue($key, $value)
+    {
+        $this->settings = new SettingApplication(
+            new InMemorySettingRepository([[$key, $value, Section::EMPTY_SECTION]])
+        );
     }
 
     /**
@@ -24,6 +38,14 @@ class CreateSettingsContext implements Context
      */
     public function youTryToCreateNewSettingNamedWithValue($settingName, $settingValue)
     {
+        $this->settings->set($settingName, $settingValue);
+    }
 
+    /**
+     * @Then the value for :key should be :value
+     */
+    public function theValueForKeyShouldBe($key, $value)
+    {
+        assert($value === $this->settings->get($key), 'Key value not the same as stored one');
     }
 }
