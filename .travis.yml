@@ -8,4 +8,4 @@ before_script:
 
 script:
   - bin/behat
-  - bin/phpspec run
+  - bin/phpspec run -f pretty
