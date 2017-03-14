@@ -64,6 +64,6 @@ trait GetSettingContext
             $value = null;
         }
 
-        assert($value ===$this->responseValue, "[$value] compared to [$this->responseValue]");
+        assert($value === $this->responseValue, "[$value] compared to [$this->responseValue]");
     }
 }
