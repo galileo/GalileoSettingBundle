@@ -1,6 +1,7 @@
 build:
   tests:
     override:
+      - 'ls -al'
       -
         command: 'bin/phpspec run -f progress -c phpcpec-ci.yml'
         coverage:
