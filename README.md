@@ -52,13 +52,13 @@ $service('galileo.setting.setting')->section('userId:{userId}')->get('email_addr
 
 ### Events you can listen to
 
-| Event name | Event class | Implemented |
-| --- | --- |
-| `galileo.setting.not_existing_setting_queried` | NotExistingSettingQueriedEvent | :x: |
-| `galileo.setting.setting_queried`              | SettingQueriedEvent            | :x: |
-| `galileo.setting.setting_created`              | SettingCreatedEvent            | :x: |
-| `galileo.setting.setting_changed`              | SettingChangedEvent            | :x: |
-| `galileo.setting.setting_deleted`              | SettingDeletedEvent            | :x: |
+| Event name                                     | Event class                    | Implemented |
+| ---                                            | ---                            | ---         |
+| `galileo.setting.not_existing_setting_queried` | NotExistingSettingQueriedEvent | :x:         |
+| `galileo.setting.setting_queried`              | SettingQueriedEvent            | :x:         |
+| `galileo.setting.setting_created`              | SettingCreatedEvent            | :x:         |
+| `galileo.setting.setting_changed`              | SettingChangedEvent            | :x:         |
+| `galileo.setting.setting_deleted`              | SettingDeletedEvent            | :x:         |
 
 ### Getter events 
 
