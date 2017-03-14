@@ -14,7 +14,8 @@
   },
   "require-dev": {
     "phpspec/phpspec": "^3.2",
-    "behat/behat": "^3.3"
+    "behat/behat": "^3.3",
+    "leanphp/phpspec-code-coverage": "~3.1"
   },
   "license": "MIT",
   "authors": [
