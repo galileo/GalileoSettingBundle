@@ -9,16 +9,8 @@ use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
 class DoctrineSettingRepository implements SettingRepository
 {
-    public function findFor(Key $settingKey)
-    {
-        // TODO: Implement findFor() method.
-    }
-
     /**
-     * @param Key $settingKey
-     * @param Section $settingSection
-     *
-     * @return Setting | null
+     * {@inheritdoc}
      */
     public function findWithinSection(Key $settingKey, Section $settingSection)
     {
@@ -26,9 +18,7 @@ class DoctrineSettingRepository implements SettingRepository
     }
 
     /**
-     * @param Setting $setting
-     *
-     * @return Setting
+     * {@inheritdoc}
      */
     public function save(Setting $setting)
     {
