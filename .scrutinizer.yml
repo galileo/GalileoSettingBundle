@@ -1,0 +1,9 @@
+build:
+  tests:
+    override:
+      - 'ls -al'
+      -
+        command: 'bin/phpspec run -f progress -c phpspec-ci.yml'
+        coverage:
+          file: 'coverage.clover'
+          format: 'php-clover'

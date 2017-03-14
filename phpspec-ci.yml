@@ -1,0 +1,13 @@
+extensions:
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
+
+code_coverage:
+  format:
+    - clover
+  output:
+    clover: coverage.clover
+
+suites:
+    setting_suite:
+        namespace: Galileo\SettingBundle
+        psr4_prefix: Galileo\SettingBundle
