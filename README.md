@@ -1,4 +1,9 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b0f4ac5f-a7fa-443d-a9d5-4361e395c3aa/mini.png)](https://insight.sensiolabs.com/projects/b0f4ac5f-a7fa-443d-a9d5-4361e395c3aa)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/galileo/GalileoSettingBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/galileo/GalileoSettingBundle/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/galileo/GalileoSettingBundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/galileo/GalileoSettingBundle/build-status/master)
+
 # GalileoSettingBundle
+
 With this repository we will try to fill the gap of simple configuration and settings functionality handled by external storage mechanism.
 
 ## Comparision to CraueConfigBundle
