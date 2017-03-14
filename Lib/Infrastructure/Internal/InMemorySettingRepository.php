@@ -3,12 +3,12 @@
 namespace Galileo\SettingBundle\Lib\Infrastructure\Internal;
 
 use Galileo\SettingBundle\Lib\Model\Setting;
-use Galileo\SettingBundle\Lib\Model\SettingRepository;
+use Galileo\SettingBundle\Lib\Model\SettingRepositoryInterface;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 
-class InMemorySettingRepository implements SettingRepository
+class InMemorySettingRepository implements SettingRepositoryInterface
 {
     private $values = [];
 

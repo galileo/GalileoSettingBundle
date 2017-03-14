@@ -4,7 +4,7 @@ namespace spec\Galileo\SettingBundle\Lib\Application;
 
 use Galileo\SettingBundle\Lib\Application\SettingApplication;
 use Galileo\SettingBundle\Lib\Infrastructure\Internal\InMemorySettingRepository;
-use Galileo\SettingBundle\Lib\Model\SettingRepository;
+use Galileo\SettingBundle\Lib\Model\SettingRepositoryInterface;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
@@ -37,7 +37,7 @@ class SettingApplicationSpec extends ObjectBehavior
         $this->get('set_key', 'forced_default')->shouldReturn('stored_value');
     }
 
-    public function it_returns_value_from_persistence_mechanism(SettingRepository $settingRepository)
+    public function it_returns_value_from_persistence_mechanism(SettingRepositoryInterface $settingRepository)
     {
         $settingRepository->findWithinSection(new Key('set_key'), Section::blank())->willReturn(Value::fromString('stored_value'));
 

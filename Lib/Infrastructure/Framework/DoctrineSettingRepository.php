@@ -3,11 +3,11 @@
 namespace Galileo\SettingBundle\Lib\Infrastructure\Framework;
 
 use Galileo\SettingBundle\Lib\Model\Setting;
-use Galileo\SettingBundle\Lib\Model\SettingRepository;
+use Galileo\SettingBundle\Lib\Model\SettingRepositoryInterface;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
-class DoctrineSettingRepository implements SettingRepository
+class DoctrineSettingRepository implements SettingRepositoryInterface
 {
     /**
      * {@inheritdoc}

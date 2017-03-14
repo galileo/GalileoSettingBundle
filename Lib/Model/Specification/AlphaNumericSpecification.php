@@ -4,7 +4,7 @@ namespace Galileo\SettingBundle\Lib\Model\Specification;
 
 use Galileo\SettingBundle\Lib\Model\Exceptions\GuardException;
 
-class AlphaNumericSpecification implements Specification
+class AlphaNumericSpecification implements SpecificationInterface
 {
     /**
      * {@inheritdoc}

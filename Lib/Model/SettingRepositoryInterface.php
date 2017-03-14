@@ -5,7 +5,7 @@ namespace Galileo\SettingBundle\Lib\Model;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
-interface SettingRepository
+interface SettingRepositoryInterface
 {
     /**
      * @param Key $settingKey

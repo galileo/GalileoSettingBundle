@@ -3,14 +3,14 @@
 namespace Galileo\SettingBundle\Lib\Application;
 
 use Galileo\SettingBundle\Lib\Model\SectionQuery;
-use Galileo\SettingBundle\Lib\Model\SettingRepository;
+use Galileo\SettingBundle\Lib\Model\SettingRepositoryInterface;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
 class SettingApplication
 {
     private $settingRepository;
 
-    public function __construct(SettingRepository $settingRepository)
+    public function __construct(SettingRepositoryInterface $settingRepository)
     {
         $this->settingRepository = $settingRepository;
     }

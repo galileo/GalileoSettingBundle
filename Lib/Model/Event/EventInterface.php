@@ -2,7 +2,7 @@
 
 namespace Galileo\SettingBundle\Lib\Model\Event;
 
-interface Event
+interface EventInterface
 {
     public static function eventName();
 }

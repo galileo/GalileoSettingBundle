@@ -6,13 +6,13 @@ trait EventAggregateTrait
 {
     private $events = [];
 
-    protected function riseEvent(Event $event)
+    protected function riseEvent(EventInterface $event)
     {
         $this->events[] = $event;
     }
 
     /**
-     * @return Event[]
+     * @return EventInterface[]
      */
     public function getEvents()
     {

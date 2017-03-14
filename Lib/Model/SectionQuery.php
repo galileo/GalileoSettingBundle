@@ -10,7 +10,7 @@ use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 class SectionQuery
 {
     /**
-     * @var SettingRepository
+     * @var SettingRepositoryInterface
      */
     private $settingRepository;
 
@@ -19,7 +19,7 @@ class SectionQuery
      */
     private $section;
 
-    public function __construct(SettingRepository $settingRepository, Section $section)
+    public function __construct(SettingRepositoryInterface $settingRepository, Section $section)
     {
         $this->settingRepository = $settingRepository;
         $this->section = $section;

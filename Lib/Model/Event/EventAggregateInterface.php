@@ -2,10 +2,10 @@
 
 namespace Galileo\SettingBundle\Lib\Model\Event;
 
-interface EventAggregate
+interface EventAggregateInterface
 {
     /**
-     * @return Event[]
+     * @return EventInterface[]
      */
     public function getEvents();
 

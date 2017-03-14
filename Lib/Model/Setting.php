@@ -2,13 +2,13 @@
 
 namespace Galileo\SettingBundle\Lib\Model;
 
-use Galileo\SettingBundle\Lib\Model\Event\EventAggregate;
+use Galileo\SettingBundle\Lib\Model\Event\EventAggregateInterface;
 use Galileo\SettingBundle\Lib\Model\Event\EventAggregateTrait;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 
-class Setting implements EventAggregate
+class Setting implements EventAggregateInterface
 {
     use EventAggregateTrait;
 
