@@ -12,9 +12,9 @@ class Setting implements EventAggregateInterface
 {
     use EventAggregateTrait;
 
-    private $name;
-    private $value;
-    private $section;
+    protected $name;
+    protected $value;
+    protected $section;
 
     public static function issue(Key $name, Value $value, Section $section)
     {
