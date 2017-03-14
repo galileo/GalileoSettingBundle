@@ -1,11 +1,11 @@
 extensions:
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
-
-code_coverage:
-  format:
-    - clover
-  output:
-    clover: coverage.clover
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+      whitelist:
+          - Lib
+      format:
+          - clover
+      output:
+         clover: coverage.xml
 
 suites:
     setting_suite:
