@@ -1,12 +1,12 @@
 services:
 # Application layer
-    galileo_setting.sapi.setting:
+    galileo.setting.setting
         class: Galileo\SettingBundle\Lib\Application\SettingApplication
         arguments:
-            - '@galileo_setting.infrastructure.setting_repository'
+            - '@galileo.setting.infrastructure.setting_repository'
 
 # Infrastructure layer
-    galileo_setting.infrastructure.setting_repository:
+    galileo.setting.infrastructure.setting_repository:
         class: Galileo\SettingBundle\Lib\Infrastructure\Framework\DoctrineSettingRepository
         public: false
         arguments:
