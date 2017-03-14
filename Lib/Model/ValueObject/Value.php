@@ -16,7 +16,7 @@ class Value
         return new Value($string);
     }
 
-    function value()
+    public function value()
     {
         return $this->value;
     }
