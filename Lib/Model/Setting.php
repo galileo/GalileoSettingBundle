@@ -68,7 +68,7 @@ class Setting implements EventAggregate
     /**
      * @param Section $section
      */
-    private function setSection(Section $section = null)
+    private function setSection(Section $section)
     {
         $this->section = $section->name();
     }

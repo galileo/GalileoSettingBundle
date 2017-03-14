@@ -28,13 +28,8 @@ class InMemorySettingRepository implements SettingRepository
      */
     public function findWithinSection(Key $settingKey, Section $section)
     {
-        $sectionName = $section->name();
-
-        if (!$this->values) {
-            return null;
-        }
-
         $key = $settingKey->key();
+        $sectionName = $section->name();
 
         if (!isset($this->values[$key][$sectionName])) {
             return null;
