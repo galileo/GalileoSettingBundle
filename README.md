@@ -33,32 +33,32 @@ https://github.com/craue/CraueConfigBundle
 
 Simple get:
 ~~~
-$service('galileo.settings.setting')->get('our_settinng');
+$service('galileo.setting.setting')->get('our_settinng');
 ~~~
 
 Get with default value:
 
 ~~~
-$service('galileo.settings.setting')->get('email_address', 'hello@galileoprime.com');
+$service('galileo.setting.setting')->get('email_address', 'hello@galileoprime.com');
 ~~~
 
 Get users within sections, you can use them for example for user specific settings:
 
 ~~~
-$service('galileo.settings.setting')->section('userId:{userId}')->get('email_address', 'hello@galileoprime.com');
+$service('galileo.setting.setting')->section('userId:{userId}')->get('email_address', 'hello@galileoprime.com');
 ~~~
 
 ## Dispatched events
 
 ### Events you can listen to
 
-| Event name | Event class |
-| --- | --- |
-| `galileo.setting.not_existing_setting_queried` | Galileo\SettingBundle\Domain\Model\Events\NotExistingSettingQueriedEvent |
-| `galileo.setting.setting_queried`              | Galileo\SettingBundle\Domain\Model\Events\SettingQueriedEvent            |
-| `galileo.setting.setting_created`              | Galileo\SettingBundle\Domain\Model\Events\SettingCreatedEvent            |
-| `galileo.setting.setting_changed`              | Galileo\SettingBundle\Domain\Model\Events\SettingChangedEvent            |
-| `galileo.setting.setting_deleted`              | Galileo\SettingBundle\Domain\Model\Events\SettingDeletedEvent            |
+| Event name                                     | Event class                    | Implemented |
+| ---                                            | ---                            | ---         |
+| `galileo.setting.not_existing_setting_queried` | NotExistingSettingQueriedEvent | :x:         |
+| `galileo.setting.setting_queried`              | SettingQueriedEvent            | :x:         |
+| `galileo.setting.setting_created`              | SettingCreatedEvent            | :x:         |
+| `galileo.setting.setting_changed`              | SettingChangedEvent            | :x:         |
+| `galileo.setting.setting_deleted`              | SettingDeletedEvent            | :x:         |
 
 ### Getter events 
 

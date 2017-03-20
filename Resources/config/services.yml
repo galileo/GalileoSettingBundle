@@ -1,4 +1,13 @@
 services:
-#    galileo_setting.example:
-#        class: Galileo\SettingBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+# Application layer
+    galileo.setting.setting
+        class: Galileo\SettingBundle\Lib\Application\SettingApplication
+        arguments:
+            - '@galileo.setting.infrastructure.setting_repository'
+
+# Infrastructure layer
+    galileo.setting.infrastructure.setting_repository:
+        class: Galileo\SettingBundle\Lib\Infrastructure\Framework\DoctrineSettingRepository
+        public: false
+        arguments:
+            - '@doctrine.orm.entity_manager'
