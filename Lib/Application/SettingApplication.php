@@ -2,11 +2,12 @@
 
 namespace Galileo\SettingBundle\Lib\Application;
 
+use Galileo\SettingBundle\Lib\Model\SectionBagInterface;
 use Galileo\SettingBundle\Lib\Model\SectionQuery;
 use Galileo\SettingBundle\Lib\Model\SettingRepositoryInterface;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 
-class SettingApplication
+class SettingApplication implements SectionBagInterface
 {
     private $settingRepository;
 
@@ -15,6 +16,9 @@ class SettingApplication
         $this->settingRepository = $settingRepository;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function get($settingKey, $defaultValue = null)
     {
         $sectionQuery = new SectionQuery($this->settingRepository, Section::blank());
@@ -23,14 +27,16 @@ class SettingApplication
     }
 
     /**
-     * @param $name
-     * @return SectionQuery
+     * {@inheritdoc}
      */
     public function section($name)
     {
         return new SectionQuery($this->settingRepository, new Section($name));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function set($keyName, $valueString)
     {
         $sectionQuery = new SectionQuery($this->settingRepository, Section::blank());

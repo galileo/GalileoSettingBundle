@@ -7,7 +7,7 @@ use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
 use Galileo\SettingBundle\Lib\Model\ValueObject\SettingValueChooser;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 
-class SectionQuery
+class SectionQuery implements SettingBagInterface
 {
     /**
      * @var SettingRepositoryInterface
