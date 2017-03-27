@@ -10,12 +10,12 @@ class SettingValueChooser
 
     public static function choose(Setting $setting = null, $default = null)
     {
-        return new SettingValueChooser($setting ? $setting->value() : $default);
+        return new SettingValueChooser($setting, $default);
     }
 
-    private function __construct($value)
+    private function __construct(Setting $setting, $default = null)
     {
-        $this->value = $value;
+        $this->value = $setting ? $setting->value() : $default;
     }
 
     public function value()
