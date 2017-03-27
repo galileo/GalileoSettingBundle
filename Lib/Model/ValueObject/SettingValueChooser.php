@@ -13,7 +13,7 @@ class SettingValueChooser
         return new SettingValueChooser($setting, $default);
     }
 
-    private function __construct(Setting $setting, $default = null)
+    private function __construct(Setting $setting = null, $default = null)
     {
         $this->value = $setting ? $setting->value() : $default;
     }
