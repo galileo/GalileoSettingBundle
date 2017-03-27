@@ -10,8 +10,7 @@ Galileo\SettingBundle\Entity\Setting:
             type: string
             length: 255
         value:
-            type: string
-            length: 255
+            type: text
         section:
             type: string
             length: 255
