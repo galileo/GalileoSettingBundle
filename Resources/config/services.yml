@@ -1,6 +1,6 @@
 services:
 # Application layer
-    galileo.setting.setting
+    galileo.setting.setting:
         class: Galileo\SettingBundle\Lib\Application\SettingApplication
         arguments:
             - '@galileo.setting.infrastructure.setting_repository'
