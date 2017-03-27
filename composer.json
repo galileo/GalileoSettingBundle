@@ -3,13 +3,19 @@
   "description": "Symfony Framework bundle responsible for adding simple configuration possiblities persisted in external storage mechanims",
   "type": "symfony-bundle",
   "autoload": {
-    "psr-4": {"Galileo\\SettingBundle\\": ""}
+    "psr-4": {
+      "Galileo\\SettingBundle\\": ""
+    }
   },
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin",
+    "platform": {
+      "php": "5.3.9"
+    },
+    "sort-packages": true
   },
   "require": {
-    "php": ">=5.6",
+    "php": ">=5.3.9",
     "symfony/framework-bundle": "^2.7 || ^3.0"
   },
   "require-dev": {
