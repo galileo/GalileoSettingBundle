@@ -10,12 +10,12 @@
   "config": {
     "bin-dir": "bin",
     "platform": {
-      "php": "5.3.9"
+      "php": "5.6"
     },
     "sort-packages": true
   },
   "require": {
-    "php": ">=5.3.9",
+    "php": ">=5.6",
     "symfony/framework-bundle": "^2.7 || ^3.0"
   },
   "require-dev": {
