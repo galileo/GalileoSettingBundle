@@ -1,13 +1,15 @@
 extensions:
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
-      whitelist:
-          - Lib
-      format:
-          - clover
-      output:
-         clover: coverage.xml
+  - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
 
-suites:
+code_coverage:
+    format:
+          - clover
+    output:
+       clover: coverage.xml
+
+    whitelist:
+          - Lib
+
     setting_suite:
         namespace: Galileo\SettingBundle
         psr4_prefix: Galileo\SettingBundle
