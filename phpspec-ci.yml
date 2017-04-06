@@ -3,13 +3,14 @@ extensions:
 
 code_coverage:
     format:
-          - clover
+        - clover
     output:
-       clover: coverage.xml
+        clover: coverage.xml
 
     whitelist:
-          - Lib
+        - Lib
 
+suites:
     setting_suite:
         namespace: Galileo\SettingBundle
         psr4_prefix: Galileo\SettingBundle
