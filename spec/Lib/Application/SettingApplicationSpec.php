@@ -5,9 +5,7 @@ namespace spec\Galileo\SettingBundle\Lib\Application;
 use Galileo\SettingBundle\Lib\Application\SettingApplication;
 use Galileo\SettingBundle\Lib\Infrastructure\Internal\InMemorySettingRepository;
 use Galileo\SettingBundle\Lib\Model\SettingRepositoryInterface;
-use Galileo\SettingBundle\Lib\Model\ValueObject\Key;
 use Galileo\SettingBundle\Lib\Model\ValueObject\Section;
-use Galileo\SettingBundle\Lib\Model\ValueObject\Value;
 use PhpSpec\ObjectBehavior;
 
 class SettingApplicationSpec extends ObjectBehavior
@@ -39,8 +37,6 @@ class SettingApplicationSpec extends ObjectBehavior
 
     public function it_returns_value_from_persistence_mechanism(SettingRepositoryInterface $settingRepository)
     {
-        $settingRepository->findWithinSection(new Key('set_key'), Section::blank())->willReturn(Value::fromString('stored_value'));
-
         $this->get('set_key')->shouldReturn('stored_value');
     }
 
@@ -55,5 +51,17 @@ class SettingApplicationSpec extends ObjectBehavior
     {
         $this->set('set_key', 'updated_value');
         $this->get('set_key')->shouldReturn('updated_value');
+    }
+
+    public function it_should_distinguish_key_from_key_within_section()
+    {
+        $this->section('some_section')->get('set_key')->shouldReturn(null);
+    }
+
+    public function get_as_an_shortcut_for_blank_section()
+    {
+        $name = Section::blank()->name();
+
+        $this->section($name)->get('set_key')->shouldReturn('stored_value');
     }
 }
