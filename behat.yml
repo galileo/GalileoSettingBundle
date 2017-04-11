@@ -1,7 +1,23 @@
 default:
-    suites:
-        broadcaster:
-            paths:    [ %paths.base%/Features ]
-            contexts:
-                - Galileo\SettingBundle\Features\Context\FeatureContext
-                - Galileo\SettingBundle\Features\Context\CreateSettingsContext
+  suites:
+    broadcaster:
+      paths:    [ %paths.base%/Features ]
+      contexts:
+        - Galileo\SettingBundle\Features\Context\FeatureContext
+        - Galileo\SettingBundle\Features\Context\CreateSettingsContext
+
+    doctrine:
+      type: symfony_bundle
+      bundle: GalileoSettingBundle
+      paths:    [ %paths.base%/Features/Symfony ]
+      contexts:
+        - Galileo\SettingBundle\Features\Context\DoctrineContext:
+            application: '@galileo.setting.setting'
+
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        env: test
+        debug: true
+        path: Features/Resources/Symfony/app/AppKernel.php
+        bootstrap: Features/Resources/Symfony/app/bootstrap.php

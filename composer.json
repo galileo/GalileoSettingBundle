@@ -20,6 +20,9 @@
   },
   "require-dev": {
     "behat/behat": "^3.3",
+    "behat/symfony2-extension": "^2.0",
+    "doctrine/doctrine-bundle": "^1.6",
+    "doctrine/orm": "^2.4",
     "leanphp/phpspec-code-coverage": "^2.1",
     "phpspec/phpspec": "^2.5"
   },

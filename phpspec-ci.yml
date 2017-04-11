@@ -4,8 +4,10 @@ extensions:
 code_coverage:
     format:
         - clover
+        - html
     output:
         clover: coverage.xml
+        html: coverage
 
     whitelist:
         - Lib
